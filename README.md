@@ -9,7 +9,7 @@ This repository contains the OpenTelemetry internal collector used by both:
 
 Architecture:
 
-`wabot` + `pp` -> `alloy` (internal collector) -> Grafana Cloud
+`wabot` + `pp` -> `collector-service` (internal collector) -> Grafana Cloud
 
 ## Deploy on Railway
 
@@ -24,11 +24,13 @@ Architecture:
 
 Set these on both `wabot` and `pp` services:
 
-- `OTEL_EXPORTER_OTLP_ENDPOINT=http://alloy.railway.internal:4318`
+- `OTEL_EXPORTER_OTLP_ENDPOINT=http://<collector-service-name>.railway.internal:4318`
 - `OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf`
 - `OTEL_TRACES_EXPORTER=otlp`
 - `OTEL_METRICS_EXPORTER=otlp`
 - `OTEL_LOGS_EXPORTER=otlp`
+
+Important: `<collector-service-name>` must match the Railway service name you created for this repo (for example `pp-infra`), not necessarily `alloy`.
 
 Set service-specific name:
 

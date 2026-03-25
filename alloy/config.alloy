@@ -1,8 +1,13 @@
+// pp-infra/alloy/config.alloy
 otelcol.receiver.otlp "default" {
-  // Receive OTLP over gRPC on :4317
-  grpc { }
-  // Receive OTLP over HTTP/protobuf on :4318
-  http { }
+  // Receive OTLP over gRPC on IPv6 :4317
+  grpc {
+    endpoint = "[::]:4317"
+  }
+  // Receive OTLP over HTTP/protobuf on IPv6 :4318
+  http {
+    endpoint = "[::]:4318"
+  }
 
   output {
     metrics = [otelcol.processor.resourcedetection.default.input]
