@@ -36,3 +36,7 @@ Set service-specific name:
 
 - wabot: `OTEL_SERVICE_NAME=wabot`
 - pp: `OTEL_SERVICE_NAME=pp`
+
+## Licence
+
+Code: [MIT](LICENSE). The LIFTeracy name and logo are **not** licensed; forks must not use them.
